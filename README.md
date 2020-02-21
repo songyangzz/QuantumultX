@@ -1,0 +1,2 @@
+# QuantumultX
+qx script
