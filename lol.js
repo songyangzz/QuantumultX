@@ -158,15 +158,17 @@ function getResult(){
         let result=obj.data.data.rank_list;
         var order=1;
         for(var i in result){
+        retstr=retstr+order;
             retstr=retstr+'·';
-            retstr=retstr+order;
+            
             retstr=retstr+'   [  ';
             retstr=retstr+result[i].name;
             retstr=retstr+'  ]    分数<'
             retstr=retstr+result[i].win_point;
+            
+            retstr=retstr+'>';
             retstr=retstr+chanmpion;
             retstr=retstr+'\n';
-            retstr=retstr+'>';
             order++;
         }   
          
