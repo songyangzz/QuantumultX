@@ -142,7 +142,7 @@ getResult();
 
 function getResult(){
     console.log('begin');
-    let body={"area_id": 31,"pnum": 1,"psize": 20,"rank_type": 0};
+    let body={"area_id": area,"pnum": pnum,"psize": psize,"rank_type": 0};
     const lol = {
         url: 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_score_rank',
         headers: {
@@ -156,16 +156,17 @@ function getResult(){
         let chanmpion='🔥';
         let retstr='';
         let result=obj.data.data.rank_list;
-        console.log(result)
         var order=1;
         for(var i in result){
-            retstr=retstr+'排名·';
+            retstr=retstr+'·';
             retstr=retstr+order;
             retstr=retstr+'   [  ';
             retstr=retstr+result[i].name;
             retstr=retstr+'  ]    分数<'
             retstr=retstr+result[i].win_point;
-            retstr=retstr+'>\n';
+            retstr=retstr+chanmpion;
+            retstr=retstr+'\n';
+            retstr=retstr+'>';
             order++;
         }   
          
