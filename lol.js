@@ -132,7 +132,7 @@ const area=31;
 const pnum=1;
 
 //默认显示10个
-const psize=10;
+const psize=20;
 
 //rank类型
 const rank_type=0;
@@ -158,20 +158,24 @@ function getResult(){
         let result=obj.data.data.rank_list;
         var order=1;
         for(var i in result){
-        retstr=retstr+order;
+            retstr=retstr+'排名·'
+            if(order<10){
+                retstr=retstr+order+' ';
+            }
+            else{
+                retstr=retstr+order;
+            }
+
+            retstr=retstr+'·分数·'+result[i].win_point;
             retstr=retstr+'·';
-            
-            retstr=retstr+'   [  ';
+            retstr=retstr+'[ ';
             retstr=retstr+result[i].name;
-            retstr=retstr+'  ]    分数<'
-            retstr=retstr+result[i].win_point;
-            
-            retstr=retstr+'>';
+            retstr=retstr+' ]';
             retstr=retstr+chanmpion;
             retstr=retstr+'\n';
             order++;
         }   
-         
+        console.log(retstr);
         $notification.post(title, '', retstr);
         $done();
     })
