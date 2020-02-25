@@ -1,7 +1,7 @@
 # QuantumultX
 qx script
 
-自己维护几个欢迎star。
+自己维护自己用的脚本。
 
 1.饿了么签到脚本
 
