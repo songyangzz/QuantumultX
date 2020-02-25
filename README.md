@@ -7,3 +7,6 @@ qx script
 
 
 2.LOL排行查询脚本
+
+
+3.testflight公测监控
