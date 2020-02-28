@@ -10,3 +10,5 @@ qx script
 
 
 3.testflight公测监控
+
+4.ulike&轻颜相机解锁vip
