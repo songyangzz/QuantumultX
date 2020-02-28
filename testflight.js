@@ -134,7 +134,7 @@ const title = 'testfilght';
 const url = "https://testflight.apple.com/join/";
 
 //填入要监测的appkey。从testfligt地址获取。
-const appkey = "VCIvwk2g,VCIvwk2g,SHQFznkM,oV5HiCSz";
+const appkey = "VCIvwk2g";
 const fullstr = 'This beta is full';
 const appnamereg = /<span>请在 iPhone 或 iPad 中安装 TestFlight 以加入 Beta 版“(.+)”测试。<\/span>/;
 var proarray = new Array();
@@ -185,11 +185,12 @@ function getResult() {
     }
     Promise.all(proarray).then((result) => {
         if(resultstr==''){
-            $notification.post(title, '', '暂无车位');
+           console.log('暂无车位');
         }
         else{
+        
         $notification.post(title, '', resultstr);
-        }
+    }
     }).catch((error) => {
         console.log(error)
     });
