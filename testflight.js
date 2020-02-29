@@ -134,7 +134,9 @@ const title = 'testfilght';
 const url = "https://testflight.apple.com/join/";
 
 //填入要监测的appkey。从testfligt地址获取。
-const appkey = "VCIvwk2g";
+//例如"VCIvwk2g,wArXdacJ,2vnRvOTX,LzjySbQx,IdFRwmNy,qDkBu2ur,4Qt2lIm5,ZzqOu8tX,ftCqFe6D,fy7LvHVA,QKqitFwc"
+
+const appkey="VCIvwk2g";
 const fullstr = 'This beta is full';
 const appnamereg = /<span>请在 iPhone 或 iPad 中安装 TestFlight 以加入 Beta 版“(.+)”测试。<\/span>/;
 var proarray = new Array();
@@ -149,6 +151,8 @@ function getResult() {
 
     console.log(apps.length);
     for (var i = 0; i < apps.length; i++) {
+    
+     var p = new Promise(function (resolve) {
         var lol = {
             url: url + apps[i],
             headers: {
@@ -156,7 +160,7 @@ function getResult() {
             },
         };
         console.log(i+'begin');
-        var p = new Promise(function (resolve) {
+       
         $httpClient.get(lol, function (error, response, data) {
             console.log(data.indexOf(fullstr));
             try{
