@@ -271,7 +271,6 @@ function dosignhis() {
 }
 
 function doNotify() {
-  console.log(turnresult);
   var ret = signresult+'\n';
   for (var i = 0; i < sign_result.length; i++) {
     ret = ret + '***获得：' + sign_result[i].name + '(' + sign_result[i].amount + ')元🧧\n';
