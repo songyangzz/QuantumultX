@@ -46,9 +46,12 @@ h5.ele.me
 > 第 1 条脚本是用来获取 cookie 的, 用浏览器访问一次获取 cookie 成功后就可以删掉或注释掉了, 但请确保在`登录成功`后再获取 cookie.
 
 > 第 2 条脚本是签到脚本, 每天`00:05:00`执行一次.
+
+脚本之前会运行3秒，为了保证两次翻盘成功，建议定时任务配置运行两次
 */
 
 
+const delay=3000;
 const cookieName = '饿了么'
 const cookieKey = 'cookie_elem'
 const UserId = 'user_id_elem'
@@ -73,31 +76,41 @@ var headerscommon = {
 var signresult = '';
 
 //翻牌结果
-var turnstr = '翻牌结果:';
-//翻牌JSON
+var turnstr = '翻牌结果: ';
+//翻牌奖励
 var turnresult = new Array;
 
-
+//签到奖励
+var sign_result = new Array;
 
 var hisresult;
 sign()
 
 function sign() {
-  let data = dosign().then((data) => {
 
-    doturnover(1).then((data) => {
+  dosignhis().then((data) => {
+    if (hisresult) {
+     if (hisresult.has_signed_in_today) {
+        signresult = `签到结果: 重复❗ 已连续签到${hisresult.current_day+1}天`;
+        turnstr=turnstr+'无';
+        doNotify();
+        sy.done()
+      }
+      else {
+        dosign().then((data) => {
+            doturnover(1,200).then((data) => {
+              doshare().then((data) => {
 
-      doshare().then((data) => {
-
-        doturnover(2).then((data) => {
-          dosignhis().then((data) => {
-
-              doNotify();
-              sy.done()
+                doturnover(2,delay).then((data) => {
+      
+                  doNotify();
+                  sy.done()
+                })
+              })
           })
-      })
-    })
-    })
+        })
+      }
+    }
   });
 }
 
@@ -116,19 +129,19 @@ function dosign() {
 
         url.url += userid;
         url.url += endurl;
-        sy.log(url.url);
-        sy.post(url, (error, response, data) => {
-          sy.log(response.status);
-          if (response.status == 200) {
-            signresult = '签到结果: 成功🎉'
 
+        sy.post(url, (error, response, data) => {
+          var obj = JSON.parse(data);
+          if (response.status == 200) {
+            signresult = `签到结果: 成功🎉 已连续签到${hisresult.current_day+2}天`
+            sign_result = obj;
 
           } else if (response.status == 400) {
-            signresult = '签到结果: 重复❗'
+            signresult = `签到结果: 重复❗ 已连续签到${hisresult.current_day}天`
 
           }
           else {
-            signresult = '签到结果: 未知❗'
+            signresult = `签到结果: 未知❗ 已连续签到${hisresult.current_day}天`
           }
           resolve('done');
         })
@@ -140,14 +153,14 @@ function dosign() {
   })
 }
 
-function doturnover(count) {
+function doturnover(count,time) {
 
   return new Promise(resolve => {
     setTimeout(() => {
 
       try {
         var endurl = '/sign_in/daily/prize'
-        let body = { "channel": "app", "index": 0, "longitude": 116.334716796875, "latitude": 59.73897171020508 };
+        let body = { "channel": "app", "index": random(0, 3), "longitude": 116.334716796875, "latitude": 59.73897171020508 };
         url = {
           url: `https://h5.ele.me/restapi/member/v2/users/`,
           headers: headerscommon,
@@ -159,22 +172,21 @@ function doturnover(count) {
         }
         url.url += userid;
         url.url += endurl;
-        //headers['Content-Type']='application/json';
-        sy.log(url);
         sy.post(url, (error, response, data) => {
-          console.log(response);
           var obj = JSON.parse(data);
-
+          sy.log(count);
           if (response.status == 200) {
-            turnstr =turnstr+count+ '成功🎉 '
-            turnresult.concat(obj);
+            turnstr = turnstr + `成功(${count})🎉 `
+            for (var i in obj) {
+              turnresult.push(obj[i]);
+            }
 
           } else if (response.status == 400) {
-            turnstr =turnstr+count+ '重复❗ '
+            turnstr = turnstr + `重复(${count})❗ `
 
           }
           else {
-            turnstr =turnstr+count+ '未知❗ '
+            turnstr = turnstr + `未知(${count})❗ `
           }
 
 
@@ -184,7 +196,7 @@ function doturnover(count) {
       catch (erre) {
         resolve('done')
       }
-    })
+    },time)
   })
 }
 
@@ -195,7 +207,7 @@ function doshare() {
 
       try {
         var endurl = '/sign_in/wechat'
-        let body = { "channel": "app", "index": 0, "longitude": 116.334716796875, "latitude": 59.73897171020508 };
+        let body = { "channel": "app" };
         url = {
           url: `https://h5.ele.me/restapi/member/v1/users/`,
           headers: headerscommon,
@@ -207,15 +219,13 @@ function doshare() {
         }
         url.url += userid;
         url.url += endurl;
-        sy.log(url);
         sy.post(url, (error, response, data) => {
-          console.log(response);
           if (response.status == 200) {
 
-            console.log("分享微信成功");
+            sy.log("分享微信成功");
           }
           else {
-            console.log("分享微信失败");
+            sy.log("分享微信失败");
           }
 
 
@@ -243,7 +253,6 @@ function dosignhis() {
         }
         url.url += userid;
         url.url += endurl;
-        sy.log(url.url);
         sy.get(url, (error, response, data) => {
 
           var obj = JSON.parse(data);
@@ -262,27 +271,20 @@ function dosignhis() {
 }
 
 function doNotify() {
-
-  console.log(hisresult);
   console.log(turnresult);
-  console.log(turnstr);
-  var ret = signresult;
-  var signday = 0;
-  for (var i = 0; i < hisresult.statuses.length; i++) {
-    if (hisresult.statuses[i] == 1) {
-      signday++;
-    }
+  var ret = signresult+'\n';
+  for (var i = 0; i < sign_result.length; i++) {
+    ret = ret + '***获得：' + sign_result[i].name + '(' + sign_result[i].amount + ')元🧧\n';
   }
-  ret = ret + ',已连续签到' + signday + '天\n';
-  ret = ret + turnstr+'\n';
+  ret = ret + turnstr + '\n';
   for (var i = 0; i < turnresult.length; i++) {
     if (turnresult[i].status == 1) {
-      ret = ret + ' 获得：' + turnresult[i].prizes[0].name + '(' + turnresult[i].prizes[0].amount + ')元🧧\n';
+      ret = ret + '***获得：' + turnresult[i].prizes[0].name + '(' + turnresult[i].prizes[0].amount + ')元🧧\n';
     }
   }
-  ret = ret + '签到3天得3元红包，10天抽10-200元🧧';
+  ret = ret + '签到3天得3元红包，7天抽10-200元🧧';
 
-  sy.msg('饿了么签到', '', ret);
+  sy.msg('饿了么', '', ret);
 }
 
 
