@@ -133,7 +133,7 @@ function dosign() {
         sy.post(url, (error, response, data) => {
           var obj = JSON.parse(data);
           if (response.status == 200) {
-            signresult = `签到结果: 成功🎉 已连续签到${hisresult.current_day+2}天`
+            signresult = `签到结果: 成功🎉 已连续签到${hisresult.current_day+1}天`
             sign_result = obj;
 
           } else if (response.status == 400) {
