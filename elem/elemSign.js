@@ -13,8 +13,8 @@
 h5.ele.me
 
 [Script]
-http-request ^https:\/\/h5\.ele\.me\/restapi\/eus\/v\d\/current_user$ script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/elemGetCookies.js
-cron "0 5 0 * * *" script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/elemSign.js
+http-request ^https:\/\/h5\.ele\.me\/restapi\/eus\/v\d\/current_user$ script-path=elemGetCookies.js
+cron "0 5 0 * * *" script-path=elemSign.js
 ```
 
 ## 配置 (QuanX)
@@ -25,7 +25,7 @@ h5.ele.me
 
 [rewrite_local]
 
-^https:\/\/h5\.ele\.me\/restapi\/eus\/v\d\/current_user$ url script-request-header nzw9314/Script/elemGetCookies.js
+^https:\/\/h5\.ele\.me\/restapi\/eus\/v\d\/current_user$ url script-request-header elemGetCookies.js
 
 
 
