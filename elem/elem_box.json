@@ -1,0 +1,16 @@
+{
+	"id": "syzzzf.app.sub",
+	"name": "syzzzf应用订阅",
+	"author": "@chavyleung",
+	"icon": "",
+	"repo": "https://github.com/songyangzz/QxScripts",
+	"apps": [{
+			"id": "elemSign",
+			"name": "饿了么签到",
+			"keys": ["cookie_elem"],
+			"author": "@syzzzf",
+			"repo": "https://raw.githubusercontent.com/songyangzz/QuantumultX/master/elem/elemSign.js",
+			"icons": ["https://raw.githubusercontent.com/Orz-3/task/master/elem.png", "https://raw.githubusercontent.com/Orz-3/task/master/elem.png"]
+		}
+	]
+}
