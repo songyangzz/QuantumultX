@@ -83,7 +83,6 @@ function getResult() {
             }
         }
         if (resultstr) {
-           
             sy.msg('', '', hastr+nostr);
         }
         else{
