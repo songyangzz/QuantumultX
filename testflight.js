@@ -84,10 +84,10 @@ function getResult() {
         }
         if (resultstr) {
            
-            sy.msgt('', '', hastr+nostr);
+            sy.msg('', '', hastr+nostr);
         }
         else{
-            if(isNOtify){
+            if(isNOtify=="true"){
                 sy.msg('', '', hastr+nostr);
             }
         }
