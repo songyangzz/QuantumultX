@@ -282,7 +282,7 @@ function doNotify() {
     }
   }
   ret = ret + '签到3天得3元红包，7天抽10-200元🧧';
-  ret=ret+'\n现已加入BoxJs'
+  ret=ret+'\n现已支持BoxJs,https://raw.githubusercontent.com/songyangzz/QuantumultX/master/syzzzf.box.json'
 
   sy.msg('饿了么', '', ret);
 }
