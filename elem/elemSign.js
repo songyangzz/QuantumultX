@@ -282,7 +282,6 @@ function doNotify() {
     }
   }
   
-  ret=ret+'@mxr1995这是个NT🐶';
   ret = ret + '签到3天得3元红包，7天抽10-200元🧧';
   
 
