@@ -281,8 +281,10 @@ function doNotify() {
       ret = ret + '***获得：' + turnresult[i].prizes[0].name + '(' + turnresult[i].prizes[0].amount + ')元🧧\n';
     }
   }
+  
+  ret=ret+'@mxr1995这是个NT🐶';
   ret = ret + '签到3天得3元红包，7天抽10-200元🧧';
-  ret=ret+'@mxr1995这是个NT🐶'
+  
 
   sy.msg('饿了么', '', ret);
 }
