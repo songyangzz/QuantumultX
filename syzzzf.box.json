@@ -3,7 +3,7 @@
 	"name": "syzzzf应用订阅",
 	"author": "@syzzzf",
 	"icon": "",
-	"repo": "https://github.com/songyangzz/QxScripts",
+	"repo": "https://github.com/songyangzz/QuantumultX",
 	"apps": [{
 			"id": "elemSign",
 			"name": "饿了么签到",
