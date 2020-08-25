@@ -36,7 +36,7 @@
 				"desc": "false没有tf位置将不会通知只记录日志"
 			}],
 			"author": "@syzzzf",
-			"repo": "https://raw.githubusercontent.com/songyangzz/QuantumultX/master/elem/elemSign.js",
+			"repo": "https://raw.githubusercontent.com/songyangzz/QuantumultX/master/testflight.js",
 			"icons": ["https://raw.githubusercontent.com/Orz-3/task/master/testflight.png", "https://raw.githubusercontent.com/Orz-3/task/master/testflight.png"]
 		}
 	]
