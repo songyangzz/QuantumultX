@@ -18,9 +18,9 @@
  * 写入要监测的公测tf appkey，当有空位的时候会弹出通知。
  * 建议task时间间隔小点。
  */
-const title = 'testfilght';
+const title = 'TestFilght';
 const url = "https://testflight.apple.com/join/";
-
+const $ = new Env('TestFilght监控');
 /**
  * 填入要监测的appkey。从testfligt地址获取。
  * 例如"VCIvwk2g,wArXdacJ,2vnRvOTX,LzjySbQx,IdFRwmNy,qDkBu2ur,4Qt2lIm5,ZzqOu8tX,ftCqFe6D,fy7LvHVA,QKqitFwc"
@@ -108,15 +108,15 @@ function getResult() {
     for (var name in logdata) {
       if (logdata[name].has) {
         var hastr ='[' + name + ']' +'\n'+ logdata[name].context;
-         $.msg("Testflight监控","",hastr);
+         $.msg("TestFilght监控","",hastr);
       }
       else {
         var nostr ='[' + name + ']' + '\n'+ logdata[name].context;
          if (isNOtify == "false") {
-        $.msg("Testflight监控","",nostr,);
+        $.msg("TestFilght监控","",nostr,);
       }
       else{
-        $.log("Testflight监控","",nostr,);
+        $.log("TestFilght监控","",nostr,);
      }
       }
     }
