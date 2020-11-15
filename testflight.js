@@ -107,14 +107,17 @@ function getResult() {
     $.log(JSON.stringify(logdata));
     for (var name in logdata) {
       if (logdata[name].has) {
-        var hastr ='\n[' + name + ']' +'\n'+ logdata[name].context;
+        var hastr ='[' + name + ']' +'\n'+ logdata[name].context;
          $.msg("Testflight监控","",hastr);
       }
       else {
-        var nostr ='\n[' + name + ']' + '\n'+ logdata[name].context;
-         if (isNOtify == "true") {
+        var nostr ='[' + name + ']' + '\n'+ logdata[name].context;
+         if (isNOtify == "false") {
         $.msg("Testflight监控","",nostr,);
       }
+      else{
+        $.log("Testflight监控","",nostr,);
+     }
       }
     }
     $.done()
