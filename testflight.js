@@ -78,14 +78,14 @@ function getResult() {
             if (!fullstr.test(dataStr)) {
               logdata[name] = {
                 'has': true,
-                'context': upstr + '👉:' + lol.url + '\n'
+                'context': upstr + '👉:' +'\n'+ lol.url + '\n\n'
               }
               resultstr = true;
             }
              else {
               logdata[name] = {
                 'has': false,
-                'context': ':暂无车位' + '\n'
+                'context': '暂无车位' + '\n\n'
               }
                resolve();
           } 
@@ -103,25 +103,18 @@ function getResult() {
      proarray[i] = p;
   }
   Promise.all(proarray).then((result) => {
-    var hastr = '';
-    var nostr = '';
+
     $.log(JSON.stringify(logdata));
     for (var name in logdata) {
       if (logdata[name].has) {
-        hastr = hastr + '[' + name + ']' +'\n'+ logdata[name].context;
+        var hastr ='\n[' + name + ']' +'\n'+ logdata[name].context;
+         $.msg("Testflight监控","",hastr);
       }
       else {
-        nostr = nostr + '[' + name + ']' + '\n'+ logdata[name].context;
+        var nostr ='\n[' + name + ']' + '\n'+ logdata[name].context;
+         if (isNOtify == "true") {
+        $.msg("Testflight监控","",nostr,);
       }
-    }
-
-    if (resultstr) {
-      
-      $.msg(hastr + nostr);
-    }
-    else {
-      if (isNOtify == "true") {
-        $.msg(hastr + nostr);
       }
     }
     $.done()
@@ -132,6 +125,8 @@ function getResult() {
 
 
 }
+
+// $done() 或 $.done() 都可以
 
 // $done() 或 $.done() 都可以
 
