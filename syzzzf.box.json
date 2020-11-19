@@ -4,57 +4,74 @@
 	"author": "@syzzzf",
 	"icon": "",
 	"repo": "https://github.com/songyangzz/QuantumultX",
-	"apps": [{
+	"apps": [
+		{
 			"id": "elemSign",
 			"name": "饿了么签到",
-			"keys": ["cookie_elem"],
+			"keys": [
+				"cookie_elem"
+			],
 			"author": "@syzzzf",
 			"repo": "https://raw.githubusercontent.com/songyangzz/QuantumultX/master/elem/elemSign.js",
-			"icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/elem.png", "https://raw.githubusercontent.com/Orz-3/task/master/elem.png"]
+			"icons": [
+				"https://raw.githubusercontent.com/Orz-3/mini/master/elem.png",
+				"https://raw.githubusercontent.com/Orz-3/task/master/elem.png"
+			]
 		},
 		{
 			"id": "testflight",
 			"name": "tf监控",
 			"keys": [],
-			"settings": [{
-				"id": "appkey",
-				"name": "监控appkey",
-				"val": "",
-				"type": "textarea",
-				"placeholder": "VCIvwk2g,1SyedSId",
-				"autoGrow": true,
-				"rows": 1,
-				"desc": "以英文逗号分隔多个key"
-			}, {
-				"id": "testflight_isnotify",
-				"name": "是否静默通知",
-				"val": "",
-				"type": "boolean",
-				"placeholder": "true or false",
-				"autoGrow": true,
-				"rows": 1,
-				"desc": "没有tf位置将不会通知"
-			}],
+			"settings": [
+				{
+					"id": "appkey",
+					"name": "监控appkey",
+					"val": "",
+					"type": "textarea",
+					"placeholder": "VCIvwk2g,1SyedSId",
+					"autoGrow": true,
+					"rows": 1,
+					"desc": "以英文逗号分隔多个key"
+				},
+				{
+					"id": "testflight_isnotify",
+					"name": "是否静默通知",
+					"val": "",
+					"type": "boolean",
+					"placeholder": "true or false",
+					"autoGrow": true,
+					"rows": 1,
+					"desc": "没有tf位置将不会通知"
+				}
+			],
 			"author": "@syzzzf",
 			"repo": "https://github.com/songyangzz/QuantumultX/blob/master/testflight.js",
-			"icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/testflight.png", "https://raw.githubusercontent.com/Orz-3/task/master/testflight.png"]
+			"icons": [
+				"https://raw.githubusercontent.com/Orz-3/mini/master/testflight.png",
+				"https://raw.githubusercontent.com/Orz-3/task/master/testflight.png"
+			]
 		},
 		{
 			"id": "sy_youth_read",
 			"name": "中青自动阅读",
 			"keys": [],
-			"settings": [{
-				"id": "zqgetbody_body",
-				"name": "请求body",
-				"val": "",
-				"type": "textarea",
-				"autoGrow": true,
-				"rows": 1,
-				"desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
-			}],
+			"settings": [
+				{
+					"id": "zqgetbody_body",
+					"name": "请求body",
+					"val": "",
+					"type": "textarea",
+					"autoGrow": true,
+					"rows": 1,
+					"desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+				}
+			],
 			"author": "@syzzzf",
 			"repo": "https://github.com/songyangzz/QuantumultX/blob/master/YOUTH_READ.js",
-			"icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/youth.png", "https://raw.githubusercontent.com/Orz-3/task/master/youth.png"],
+			"icons": [
+				"https://raw.githubusercontent.com/Orz-3/mini/master/youth.png",
+				"https://raw.githubusercontent.com/Orz-3/task/master/youth.png"
+			]
 		}
 	]
 }
