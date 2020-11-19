@@ -4,10 +4,12 @@ const $ = new Env('中青获取body')
 
 if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/article\/complete/)) {
     const articlebodyVal = $request.body
+let YouthBody;
      if (articlebodyVal) {       
      let bodys=$.getdata('zqgetbody_body');
+     
      if(bodys){
-     let YouthBody = bodys.split('&');
+      YouthBody = bodys.split('&');
 
      bodys=articlebodyVal+'&'+bodys;
     }
