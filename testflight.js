@@ -113,10 +113,10 @@ function getResult() {
       else {
         var nostr ='[' + name + ']' + '\n'+ logdata[name].context;
          if (isNOtify == "false") {
-        $.msg("TestFilght监控","",nostr,);
+        $.msg("TestFilght监控","",nostr);
       }
       else{
-        $.log("TestFilght监控","",nostr,);
+        $.log("TestFilght监控","",nostr);
      }
       }
     }

@@ -6,10 +6,11 @@ if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/article\/co
     const articlebodyVal = $request.body
      if (articlebodyVal) {       
      let bodys=$.getdata('zqgetbody_body');
-     bodys=bodys+'&'+articlebodyVal;
+     let YouthBody = bodys.split('&');
+     bodys=articlebodyVal+'&'+bodys;
      $.setdata(bodys,'zqgetbody_body')
-     $.log(`${$.name} 添加获取阅读: 成功,articlebodyVal: ${articlebodyVal}`)
-     $.msg($.name, `添加获取阅读请求: 成功🎉`, ``)
+     $.log(`${$.name} 添加获取阅读: 成功`)
+     $.msg('','',`添加阅读请求: 成功🎉,当前body${YouthBody.length+1}`)
      }
    }
 

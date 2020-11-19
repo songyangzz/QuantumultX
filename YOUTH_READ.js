@@ -47,7 +47,7 @@ YouthBody = bodys.split('&');
     }
       await AutoRead();
  }
-   $.msg(`中青看点共完成${$.index}次阅读\n共计获得${readscore}个青豆，阅读请求全部结束`)
+   $.msg('','',`中青看点共完成${$.index}次阅读\n共计获得${readscore}个青豆，阅读请求全部结束`)
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
