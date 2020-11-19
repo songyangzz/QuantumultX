@@ -36,8 +36,25 @@
 				"desc": "没有tf位置将不会通知"
 			}],
 			"author": "@syzzzf",
-			"repo": "https://raw.githubusercontent.com/songyangzz/QuantumultX/master/testflight.js",
+			"repo": "https://github.com/songyangzz/QuantumultX/blob/master/testflight.js",
 			"icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/testflight.png", "https://raw.githubusercontent.com/Orz-3/task/master/testflight.png"]
+		},
+		{
+			"id": "sy_youth_read",
+			"name": "中青自动阅读",
+			"keys": [],
+			"settings": [{
+				"id": "zqgetbody_body",
+				"name": "请求body",
+				"val": "",
+				"type": "textarea",
+				"autoGrow": true,
+				"rows": 1,
+				"desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+			}],
+			"author": "@syzzzf",
+			"repo": "https://github.com/songyangzz/QuantumultX/blob/master/YOUTH_READ.js",
+			"icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/youth.png", "https://raw.githubusercontent.com/Orz-3/task/master/youth.png"],
 		}
 	]
 }
