@@ -74,15 +74,16 @@ function AutoRead() {
               console.log(`\n本次阅读获得${readres.items.score}个青豆，即将开始下次阅读\n`)
               readscore += readres.items.score
             }
-            else if (readres.success == false){
-              console.log(`第${$.index}次阅读请求有误，删除此请求`)
-              let body=$.getdata('zqgetbody_body');
-              body=body.replace(articlebody,'');
-              $.setdata(body,'zqgetbody_body')
-            }
             else if (readres.items.max_notice == '\u770b\u592a\u4e45\u4e86\uff0c\u63621\u7bc7\u8bd5\u8bd5') {     
               console.log(readres.items.max_notice)
             }
+            else if (readres.success == false){
+              console.log(`第${$.index}次阅读请求失败`)
+               let body=$.getdata('zqgetbody_body');
+               body=body.replace(articlebody,'');
+               $.setdata(body,'zqgetbody_body')
+            }
+          
           resolve()
         })
     })
