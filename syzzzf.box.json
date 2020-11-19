@@ -54,7 +54,7 @@
 		{
 			"id": "sy_youth_read",
 			"name": "中青自动阅读",
-			"keys": [],
+			"keys": ["zqgetbody_body"],
 			"settings": [
 				{
 					"id": "zqgetbody_body",
