@@ -13,8 +13,8 @@ const $ = new Env("中青看点")
 //const notify = $.isNode() ? require('./sendNotify') : '';
 let ReadArr = [], YouthBody = "",readscore = 0;
 let bodys=$.getdata("zqgetbody_body");
-if((!bodys&&bodys!='')){
-    $.msg('请先阅读获取body')
+if(!(bodys&&bodys!='')){
+    $.msg('请先阅读文章获取body,body获取越多，脚本可获得青豆越多')
 }
 YouthBody = bodys.split('&');
 //   if (process.env.YOUTH_READ && process.env.YOUTH_READ.indexOf('&') > -1) {
