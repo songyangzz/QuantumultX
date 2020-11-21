@@ -72,7 +72,8 @@ function AutoRead() {
             }
             else if (readres.error_code == '0' && typeof readres.items.score === 'number') {
               console.log(`\n本次阅读获得${readres.items.score}个青豆，即将开始下次阅读\n`)
-              readscore += readres.items.score
+              readscore += readres.items.score;
+              await $.wait(30000);
             }
             else if (readres.items.max_notice == '\u770b\u592a\u4e45\u4e86\uff0c\u63621\u7bc7\u8bd5\u8bd5') {     
               console.log(readres.items.max_notice)
