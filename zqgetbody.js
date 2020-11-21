@@ -9,15 +9,23 @@ let YouthBody=[];
      let bodys=$.getdata('zqgetbody_body');
      
      if(bodys){
+
+        if(bodys.indexOf(articlebodyVal)!=-1){
+            $.msg('body重复跳过');
+            $.done();
+            return;
+             
+        }
+
       YouthBody = bodys.split('&');
 
+     
      bodys=articlebodyVal+'&'+bodys;
     }
     else{
         bodys=articlebodyVal;
     }
      $.setdata(bodys,'zqgetbody_body')
-     $.log(`${$.name} 添加获取阅读: 成功`)
      $.msg('','',`添加阅读请求: 成功🎉,当前body${YouthBody.length+1}`)
      }
    }
