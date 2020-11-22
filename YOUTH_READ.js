@@ -40,7 +40,7 @@ YouthBody = bodys.split('&');
     return;
   }
 
-   $.log(`中青body数：${ReadArr.length}个,预计执行${(ReadArr.length/120).toFixed(2)}个小时`)
+   $.msg(`中青body数：${ReadArr.length}个,预计执行${(ReadArr.length/120).toFixed(2)}个小时`)
 
   for (let i = 0; i < ReadArr.length; i++) {
     if (ReadArr[i]) {
