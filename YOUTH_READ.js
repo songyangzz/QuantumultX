@@ -39,6 +39,9 @@ YouthBody = bodys.split('&');
     console.log($.name, '【提示】请把抓包的请求体填入Github 的 Secrets 中，请以&隔开')
     return;
   }
+
+   $.log(`中青body数：${ReadArr.length}个,预计执行${(ReadArr.length/120).toFixed(2)}个小时`)
+
   for (let i = 0; i < ReadArr.length; i++) {
     if (ReadArr[i]) {
       articlebody = ReadArr[i];
@@ -80,9 +83,6 @@ function AutoRead() {
             }
             else if (readres.success == false){
               console.log(`第${$.index}次阅读请求失败`)
-               let body=$.getdata('zqgetbody_body');
-               body=body.replace(articlebody,'');
-               $.setdata(body,'zqgetbody_body')
             }
           
           resolve()
