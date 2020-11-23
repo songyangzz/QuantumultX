@@ -54,10 +54,20 @@
 		{
 			"id": "sy_youth_read",
 			"name": "中青自动阅读",
-			"keys": ["zqgetbody_body"],
+			"keys": ["zqgetbody_body","zqgetbody_body1"],
 			"settings": [
 				{
 					"id": "zqgetbody_body",
+					"name": "请求body",
+					"val": "",
+					"type": "textarea",
+					"autoGrow": false,
+					"rows": 1,
+					"desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+				}
+				,
+				{
+					"id": "zqgetbody_body1",
 					"name": "请求body",
 					"val": "",
 					"type": "textarea",
