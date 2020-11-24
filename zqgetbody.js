@@ -13,7 +13,6 @@ let YouthBody=[];
         if(bodys.indexOf(articlebodyVal)!=-1){
             $.msg('body重复跳过');
             $.done();
-            return;
              
         }
 

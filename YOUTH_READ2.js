@@ -12,7 +12,7 @@ Github Actions使用方法见[@lxk0301](https://raw.githubusercontent.com/lxk030
 const $ = new Env("中青看点")
 //const notify = $.isNode() ? require('./sendNotify') : '';
 let ReadArr = [], YouthBody = "", readscore = 0;
-let bodys = $.getdata("zqgetbody_body");
+let bodys = $.getdata("zqgetbody_body1");
 
 if (!(bodys && bodys != '')) {
   $.msg("", "", '请先阅读文章获取中青body\nbody获取越多，脚本可获得青豆越多')
@@ -33,7 +33,7 @@ Object.keys(YouthBody).forEach((item) => {
     ReadArr.push(YouthBody[item])
   }
 })
-let indexLast = $.getdata('zqgetbody_body_index');
+let indexLast = $.getdata('zqgetbody_body_index1');
 $.begin = indexLast ? parseInt(indexLast,10) : 1;
 console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
 console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
@@ -72,7 +72,7 @@ function AutoRead() {
     $.post(url, async (error, response, data) => {
       $.begin=$.begin+1;
       let res=$.begin%ReadArr.length
-      $.setdata(res+"", 'zqgetbody_body_index');
+      $.setdata(res+"", 'zqgetbody_body_index1');
       let readres = JSON.parse(data);
       if (readres.error_code == '0' && typeof readres.items.read_score === 'number') {
         console.log(`\n本次阅读获得${readres.items.read_score}个青豆，请等待30s后执行下一次阅读\n`);
