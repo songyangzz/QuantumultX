@@ -43,7 +43,7 @@ console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date
     return;
   }
  
-  $.msg('', '', `中青body数：${ReadArr.length}个\n上次执行到${$.begin}\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时`)
+  $.msg('', '', `中青body数：${ReadArr.length}个\n上次执行到第${$.begin}个\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时`)
   $.index = 0;
   for (let i = indexLast ? indexLast : 0; i < ReadArr.length; i++) {
     if (ReadArr[i]) {
