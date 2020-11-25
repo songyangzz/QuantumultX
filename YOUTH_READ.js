@@ -16,6 +16,7 @@ let bodys = $.getdata("zqgetbody_body");
 
 if (!(bodys && bodys != '')) {
   $.msg("", "", '请先阅读文章获取中青body\nbody获取越多，脚本可获得青豆越多')
+  $.done()
 }
 YouthBody = bodys.split('&');
 //   if (process.env.YOUTH_READ && process.env.YOUTH_READ.indexOf('&') > -1) {
