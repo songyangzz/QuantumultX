@@ -12,3 +12,6 @@ qx script
 3.testflight公测监控
 
 4.ulike&轻颜相机解锁vip
+
+5.中青自动阅读，修改自[Sunert](https://github.com/Sunert/Scripts)的脚本。
+
