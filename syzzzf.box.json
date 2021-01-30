@@ -56,6 +56,13 @@
 			"name": "中青自动阅读",
 			"keys": ["zqgetbody_body","zqgetbody_body1"],
 			"settings": [
+			 {
+          "id": "YOUNTH_READ_Notify",
+          "name": "静默运行",
+          "val": true,
+          "type": "boolean",
+          "desc": "运行脚本时不发出系统弹窗通知"
+        },
 				{
 					"id": "zqgetbody_body",
 					"name": "请求body",
