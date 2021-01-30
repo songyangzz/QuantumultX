@@ -43,7 +43,12 @@ console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date
     console.log($.name, '【提示】请把抓包的请求体填入Github 的 Secrets 中，请以&隔开')
     return;
   }
+ let ctrTemp;
+
  if ($.getdata('YOUNTH_READ_Notify')) {
+ctrTemp = $.getdata('YOUNTH_READ_Notify') === 'false';
+}
+if (ctrTemp) {
   $.msg('', '', `中青body数：${ReadArr.length}个\n上次执行到第${$.begin}个\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时`)
   }
   $.index = 0;
@@ -56,7 +61,11 @@ console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date
     await AutoRead();
   }
   
-  if ($.getdata('YOUNTH_READ_Notify')) {
+
+ if ($.getdata('YOUNTH_READ_Notify')) {
+ctrTemp = $.getdata('YOUNTH_READ_Notify') === 'false';
+}
+if (ctrTemp) {
   $.msg('', '', `中青看点共完成${$.index}次阅读\n共计获得${readscore}个青豆，阅读请求全部结束`)
   }
 })()
