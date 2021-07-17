@@ -53,7 +53,7 @@ h5.ele.me
 
 const delay=3000;
 const cookieName = '饿了么'
-const cookieKey = 'cookie_elem'
+const cookieKey = 'COOKIE_ELEM'
 const UserId = 'user_id_elem'
 const sy = init()
 var cookieVal = sy.getdata(cookieKey);
